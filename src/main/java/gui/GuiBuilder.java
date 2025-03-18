@@ -26,9 +26,7 @@ import application.Contact;
 import application.ContactGroup;
 import application.Utility;
 
-//test
 public class GuiBuilder {
-	private static String test = "test";
     private static JTable contactTable;
     private static DefaultTableModel tableModel;
     private static ArrayList<Contact> contactList = new ArrayList<>();
