@@ -2,6 +2,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.Contact;
+
 public class DBRepository implements IDBRepository {
 
     private static final String CONNECTION_STRING = "jdbc:sqlite:database.db";
@@ -28,9 +30,6 @@ public class DBRepository implements IDBRepository {
                         ");";
     }
 
-    public void addContact(Contact contact) {
-        String sql = "";
-    }
 
     public List<Contact> getAllContacts() {
         String sql = "";
@@ -42,11 +41,19 @@ public class DBRepository implements IDBRepository {
         return null;
     }
 
-    public void updateContact(Contact contact) {
+    public void deleteContact(int id) {
         String sql = "";
     }
 
-    public void deleteContact(int id) {
+    @Override
+    public void addContact(Contact contact) {
         String sql = "";
+        throw new UnsupportedOperationException("Unimplemented method 'addContact'");
+    }
+
+    @Override
+    public void updateContact(Contact contact) {
+        String sql = "";
+        throw new UnsupportedOperationException("Unimplemented method 'updateContact'");
     }
 }
