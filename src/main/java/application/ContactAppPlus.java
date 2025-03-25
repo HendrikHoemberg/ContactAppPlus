@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import gui.GuiBuilder;
 
@@ -12,5 +14,7 @@ public class ContactAppPlus {
 				GuiBuilder.initGui();
 			}
 		});
+
+		List<Contact> = new ArrayList<>();
 	}
 }

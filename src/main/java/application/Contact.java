@@ -7,7 +7,6 @@ public class Contact {
 	private String lName;
 	private String group;
 	private String phoneNumber;
-	private Adress address;
 	private String street;
 	private String houseNr;
 	private String zip;
@@ -16,14 +15,10 @@ public class Contact {
 	private String country;
 	private String emailAddress;
 
-	public Contact(int id, String fName, String lName, String group, String phoneNumber, Adress address,
-			String emailAddress) {
+	public Contact(int id, String fName, String lName, String phoneNumber) {
 		this.fName = fName;
 		this.lName = lName;
-		this.group = group;
 		this.phoneNumber = phoneNumber;
-		this.address = address;
-		this.emailAddress = emailAddress;
 	}
 
 	public int getId() {
