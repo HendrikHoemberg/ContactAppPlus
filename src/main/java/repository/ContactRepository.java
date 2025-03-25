@@ -51,13 +51,12 @@ public class ContactRepository implements IContactRepository {
                         result.getInt("contact_id"),
                         result.getString("first_name"),
                         result.getString("last_name"),
-                        result.getString("phone")
+                        result.getString("phone_number")
                 ));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return contacts;
     }
 
