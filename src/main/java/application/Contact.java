@@ -5,12 +5,18 @@ public class Contact {
 	private int id;
 	private String fName;
 	private String lName;
-	private ContactGroup group;
+	private String group;
 	private String phoneNumber;
 	private Adress address;
+	private String street;
+	private String houseNr;
+	private String zip;
+	private String city;
+	private String state;
+	private String country;
 	private String emailAddress;
 
-	public Contact(String fName, String lName, ContactGroup group, String phoneNumber, Adress address,
+	public Contact(String fName, String lName, String group, String phoneNumber, Adress address,
 			String emailAddress) {
 		this.fName = fName;
 		this.lName = lName;
@@ -36,11 +42,11 @@ public class Contact {
 		this.lName = lName;
 	}
 
-	public ContactGroup getGroup() {
+	public String getGroup() {
 		return group;
 	}
 
-	public void setGroup(ContactGroup group) {
+	public void setGroup(String group) {
 		this.group = group;
 	}
 
@@ -58,6 +64,58 @@ public class Contact {
 
 	public void setAddress(Adress adress) {
 		this.address = adress;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getHouseNr() {
+		return houseNr;
+	}
+
+	public void setHouseNr(String houseNr) {
+		this.houseNr = houseNr;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getEmailAddress() {

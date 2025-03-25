@@ -15,7 +15,6 @@ import javax.swing.SpringLayout;
 
 import application.Adress;
 import application.Contact;
-import application.ContactGroup;
 
 public class contactEditor {
 	
@@ -45,7 +44,7 @@ public class contactEditor {
             @Override
             public void actionPerformed(ActionEvent e) {
             	Adress adress = null;
-            	ContactGroup group = null;
+            	String group = null;
             	Contact newContact = new Contact(fNameField.getText(), lNameField.getText(), group, phoneNumberField.getText(), adress, emailAddressField.getText());
                 contactList.add(newContact);
                 GuiBuilder.refreshContactList();
@@ -202,7 +201,7 @@ public class contactEditor {
     }
 	
 	private static Contact createContact(JList contactList, String fName, String lName, 
-			ContactGroup group, String phoneNumber, Adress adress, String eMail) {
+			String group, String phoneNumber, Adress adress, String eMail) {
 		Contact contact = new Contact(fName, lName, group, phoneNumber, adress, eMail);
 		return contact;
 	}

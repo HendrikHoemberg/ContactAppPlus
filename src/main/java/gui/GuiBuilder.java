@@ -21,9 +21,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import application.Adress;
 import application.Contact;
-import application.ContactGroup;
 import application.Utility;
 
 public class GuiBuilder {
@@ -40,16 +38,26 @@ public class GuiBuilder {
     private static JTextField viewLNameField;
     private static JTextField viewGroupField;
     private static JTextField viewPhoneField;
-    private static JTextField viewAddressField;
     private static JTextField viewEmailField;
+    private static JTextField viewStreetField;
+    private static JTextField viewHouseNrField;
+    private static JTextField viewZipField;
+    private static JTextField viewCityField;
+    private static JTextField viewStateField;
+    private static JTextField viewCountryField;
     
     // Edit panel components
     private static JTextField editFNameField;
     private static JTextField editLNameField;
     private static JTextField editGroupField;
     private static JTextField editPhoneField;
-    private static JTextField editAddressField;
     private static JTextField editEmailField;
+    private static JTextField editStreetField;
+    private static JTextField editHouseNrField;
+    private static JTextField editZipField;
+    private static JTextField editCityField;
+    private static JTextField editStateField;
+    private static JTextField editCountryField;
     private static JButton saveEditButton;
     
     // New contact panel components
@@ -57,8 +65,13 @@ public class GuiBuilder {
     private static JTextField newLNameField;
     private static JTextField newGroupField;
     private static JTextField newPhoneField;
-    private static JTextField newAddressField;
     private static JTextField newEmailField;
+    private static JTextField newStreetField;
+    private static JTextField newHouseNrField;
+    private static JTextField newZipField;
+    private static JTextField newCityField;
+    private static JTextField newStateField;
+    private static JTextField newCountryField;
     private static JButton createContactButton;
     
     public static void initGui() {
@@ -128,7 +141,7 @@ public class GuiBuilder {
     
     private static JPanel createTabbedPanel() {
         JPanel panel = new JPanel(new BorderLayout());
-        panel.setPreferredSize(new Dimension(600, 350));
+        panel.setPreferredSize(new Dimension(600, 500)); // Increased height to accommodate more fields
         
         tabbedPane = new JTabbedPane();
         
@@ -156,31 +169,51 @@ public class GuiBuilder {
         JLabel lNameLabel = new JLabel("Last Name:");
         JLabel groupLabel = new JLabel("Group:");
         JLabel phoneNumberLabel = new JLabel("Phone Number:");
-        JLabel addressLabel = new JLabel("Address:");
         JLabel emailAddressLabel = new JLabel("Email:");
+        JLabel streetLabel = new JLabel("Street:");
+        JLabel houseNrLabel = new JLabel("House Nr:");
+        JLabel zipLabel = new JLabel("ZIP:");
+        JLabel cityLabel = new JLabel("City:");
+        JLabel stateLabel = new JLabel("State:");
+        JLabel countryLabel = new JLabel("Country:");
         
         viewFNameField = new JTextField(20);
         viewLNameField = new JTextField(20);
         viewGroupField = new JTextField(20);
         viewPhoneField = new JTextField(20);
-        viewAddressField = new JTextField(20);
         viewEmailField = new JTextField(20);
+        viewStreetField = new JTextField(20);
+        viewHouseNrField = new JTextField(20);
+        viewZipField = new JTextField(20);
+        viewCityField = new JTextField(20);
+        viewStateField = new JTextField(20);
+        viewCountryField = new JTextField(20);
         
         // Make fields non-editable
         viewFNameField.setEditable(false);
         viewLNameField.setEditable(false);
         viewGroupField.setEditable(false);
         viewPhoneField.setEditable(false);
-        viewAddressField.setEditable(false);
         viewEmailField.setEditable(false);
+        viewStreetField.setEditable(false);
+        viewHouseNrField.setEditable(false);
+        viewZipField.setEditable(false);
+        viewCityField.setEditable(false);
+        viewStateField.setEditable(false);
+        viewCountryField.setEditable(false);
         
         Dimension fieldSize = new Dimension(200, 25);
         viewFNameField.setPreferredSize(fieldSize);
         viewLNameField.setPreferredSize(fieldSize);
         viewGroupField.setPreferredSize(fieldSize);
         viewPhoneField.setPreferredSize(fieldSize);
-        viewAddressField.setPreferredSize(fieldSize);
         viewEmailField.setPreferredSize(fieldSize);
+        viewStreetField.setPreferredSize(fieldSize);
+        viewHouseNrField.setPreferredSize(fieldSize);
+        viewZipField.setPreferredSize(fieldSize);
+        viewCityField.setPreferredSize(fieldSize);
+        viewStateField.setPreferredSize(fieldSize);
+        viewCountryField.setPreferredSize(fieldSize);
         
         panel.add(fNameLabel);
         panel.add(viewFNameField);
@@ -190,14 +223,22 @@ public class GuiBuilder {
         panel.add(viewGroupField);
         panel.add(phoneNumberLabel);
         panel.add(viewPhoneField);
-        panel.add(addressLabel);
-        panel.add(viewAddressField);
         panel.add(emailAddressLabel);
         panel.add(viewEmailField);
+        panel.add(streetLabel);
+        panel.add(viewStreetField);
+        panel.add(houseNrLabel);
+        panel.add(viewHouseNrField);
+        panel.add(zipLabel);
+        panel.add(viewZipField);
+        panel.add(cityLabel);
+        panel.add(viewCityField);
+        panel.add(stateLabel);
+        panel.add(viewStateField);
+        panel.add(countryLabel);
+        panel.add(viewCountryField);
         
-        addLayoutConstraints(layout, panel, fNameLabel, viewFNameField, lNameLabel, viewLNameField,
-                            groupLabel, viewGroupField, phoneNumberLabel, viewPhoneField,
-                            addressLabel, viewAddressField, emailAddressLabel, viewEmailField);
+        addDetailedLayoutConstraints(layout, panel);
         
         return panel;
     }
@@ -212,15 +253,25 @@ public class GuiBuilder {
         JLabel lNameLabel = new JLabel("Last Name:");
         JLabel groupLabel = new JLabel("Group:");
         JLabel phoneNumberLabel = new JLabel("Phone Number:");
-        JLabel addressLabel = new JLabel("Address:");
         JLabel emailAddressLabel = new JLabel("Email:");
+        JLabel streetLabel = new JLabel("Street:");
+        JLabel houseNrLabel = new JLabel("House Nr:");
+        JLabel zipLabel = new JLabel("ZIP:");
+        JLabel cityLabel = new JLabel("City:");
+        JLabel stateLabel = new JLabel("State:");
+        JLabel countryLabel = new JLabel("Country:");
         
         editFNameField = new JTextField(20);
         editLNameField = new JTextField(20);
         editGroupField = new JTextField(20);
         editPhoneField = new JTextField(20);
-        editAddressField = new JTextField(20);
         editEmailField = new JTextField(20);
+        editStreetField = new JTextField(20);
+        editHouseNrField = new JTextField(20);
+        editZipField = new JTextField(20);
+        editCityField = new JTextField(20);
+        editStateField = new JTextField(20);
+        editCountryField = new JTextField(20);
         
         saveEditButton = new JButton("Save Changes");
         saveEditButton.addActionListener(new ActionListener() {
@@ -235,8 +286,13 @@ public class GuiBuilder {
         editLNameField.setPreferredSize(fieldSize);
         editGroupField.setPreferredSize(fieldSize);
         editPhoneField.setPreferredSize(fieldSize);
-        editAddressField.setPreferredSize(fieldSize);
         editEmailField.setPreferredSize(fieldSize);
+        editStreetField.setPreferredSize(fieldSize);
+        editHouseNrField.setPreferredSize(fieldSize);
+        editZipField.setPreferredSize(fieldSize);
+        editCityField.setPreferredSize(fieldSize);
+        editStateField.setPreferredSize(fieldSize);
+        editCountryField.setPreferredSize(fieldSize);
         
         panel.add(fNameLabel);
         panel.add(editFNameField);
@@ -246,18 +302,26 @@ public class GuiBuilder {
         panel.add(editGroupField);
         panel.add(phoneNumberLabel);
         panel.add(editPhoneField);
-        panel.add(addressLabel);
-        panel.add(editAddressField);
         panel.add(emailAddressLabel);
         panel.add(editEmailField);
+        panel.add(streetLabel);
+        panel.add(editStreetField);
+        panel.add(houseNrLabel);
+        panel.add(editHouseNrField);
+        panel.add(zipLabel);
+        panel.add(editZipField);
+        panel.add(cityLabel);
+        panel.add(editCityField);
+        panel.add(stateLabel);
+        panel.add(editStateField);
+        panel.add(countryLabel);
+        panel.add(editCountryField);
         panel.add(saveEditButton);
         
-        addLayoutConstraints(layout, panel, fNameLabel, editFNameField, lNameLabel, editLNameField,
-                            groupLabel, editGroupField, phoneNumberLabel, editPhoneField,
-                            addressLabel, editAddressField, emailAddressLabel, editEmailField);
+        addDetailedLayoutConstraints(layout, panel);
         
         // Add constraint for save button
-        layout.putConstraint(SpringLayout.NORTH, saveEditButton, 20, SpringLayout.SOUTH, emailAddressLabel);
+        layout.putConstraint(SpringLayout.NORTH, saveEditButton, 20, SpringLayout.SOUTH, countryLabel);
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, saveEditButton, 0, SpringLayout.HORIZONTAL_CENTER, panel);
         
         return panel;
@@ -273,15 +337,25 @@ public class GuiBuilder {
         JLabel lNameLabel = new JLabel("Last Name:");
         JLabel groupLabel = new JLabel("Group:");
         JLabel phoneNumberLabel = new JLabel("Phone Number:");
-        JLabel addressLabel = new JLabel("Address:");
         JLabel emailAddressLabel = new JLabel("Email:");
+        JLabel streetLabel = new JLabel("Street:");
+        JLabel houseNrLabel = new JLabel("House Nr:");
+        JLabel zipLabel = new JLabel("ZIP:");
+        JLabel cityLabel = new JLabel("City:");
+        JLabel stateLabel = new JLabel("State:");
+        JLabel countryLabel = new JLabel("Country:");
         
         newFNameField = new JTextField(20);
         newLNameField = new JTextField(20);
         newGroupField = new JTextField(20);
         newPhoneField = new JTextField(20);
-        newAddressField = new JTextField(20);
         newEmailField = new JTextField(20);
+        newStreetField = new JTextField(20);
+        newHouseNrField = new JTextField(20);
+        newZipField = new JTextField(20);
+        newCityField = new JTextField(20);
+        newStateField = new JTextField(20);
+        newCountryField = new JTextField(20);
         
         createContactButton = new JButton("Create Contact");
         createContactButton.addActionListener(new ActionListener() {
@@ -296,8 +370,13 @@ public class GuiBuilder {
         newLNameField.setPreferredSize(fieldSize);
         newGroupField.setPreferredSize(fieldSize);
         newPhoneField.setPreferredSize(fieldSize);
-        newAddressField.setPreferredSize(fieldSize);
         newEmailField.setPreferredSize(fieldSize);
+        newStreetField.setPreferredSize(fieldSize);
+        newHouseNrField.setPreferredSize(fieldSize);
+        newZipField.setPreferredSize(fieldSize);
+        newCityField.setPreferredSize(fieldSize);
+        newStateField.setPreferredSize(fieldSize);
+        newCountryField.setPreferredSize(fieldSize);
         
         panel.add(fNameLabel);
         panel.add(newFNameField);
@@ -307,75 +386,89 @@ public class GuiBuilder {
         panel.add(newGroupField);
         panel.add(phoneNumberLabel);
         panel.add(newPhoneField);
-        panel.add(addressLabel);
-        panel.add(newAddressField);
         panel.add(emailAddressLabel);
         panel.add(newEmailField);
+        panel.add(streetLabel);
+        panel.add(newStreetField);
+        panel.add(houseNrLabel);
+        panel.add(newHouseNrField);
+        panel.add(zipLabel);
+        panel.add(newZipField);
+        panel.add(cityLabel);
+        panel.add(newCityField);
+        panel.add(stateLabel);
+        panel.add(newStateField);
+        panel.add(countryLabel);
+        panel.add(newCountryField);
         panel.add(createContactButton);
         
-        addLayoutConstraints(layout, panel, fNameLabel, newFNameField, lNameLabel, newLNameField,
-                            groupLabel, newGroupField, phoneNumberLabel, newPhoneField,
-                            addressLabel, newAddressField, emailAddressLabel, newEmailField);
+        addDetailedLayoutConstraints(layout, panel);
         
         // Add constraint for create button
-        layout.putConstraint(SpringLayout.NORTH, createContactButton, 20, SpringLayout.SOUTH, emailAddressLabel);
+        layout.putConstraint(SpringLayout.NORTH, createContactButton, 20, SpringLayout.SOUTH, countryLabel);
         layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, createContactButton, 0, SpringLayout.HORIZONTAL_CENTER, panel);
         
         return panel;
     }
     
-    private static void addLayoutConstraints(SpringLayout layout, JPanel panel,
-                                           JLabel fNameLabel, JTextField fNameField,
-                                           JLabel lNameLabel, JTextField lNameField,
-                                           JLabel groupLabel, JTextField groupField,
-                                           JLabel phoneNumberLabel, JTextField phoneNumberField,
-                                           JLabel addressLabel, JTextField addressField,
-                                           JLabel emailAddressLabel, JTextField emailAddressField) {
+    private static void addDetailedLayoutConstraints(SpringLayout layout, JPanel panel) {
+        // Get all labels
+        JLabel[] labels = new JLabel[11];
+        JTextField[] fields = new JTextField[11];
+        
+        // Find all labels and fields in the panel
+        int labelIndex = 0;
+        int fieldIndex = 0;
+        for (int i = 0; i < panel.getComponentCount(); i++) {
+            if (panel.getComponent(i) instanceof JLabel) {
+                labels[labelIndex++] = (JLabel) panel.getComponent(i);
+            } else if (panel.getComponent(i) instanceof JTextField) {
+                fields[fieldIndex++] = (JTextField) panel.getComponent(i);
+            }
+        }
+        
+        // Sort labels to ensure proper order
+        // (This is a simplified approach, in a real application we would have a more reliable way to access components)
+        
         int labelOffset = 10; 
         int fieldStartX = 120;  
         int rowSpacing = 20;
         
-        layout.putConstraint(SpringLayout.WEST, fNameLabel, labelOffset, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, lNameLabel, labelOffset, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, groupLabel, labelOffset, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, phoneNumberLabel, labelOffset, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, addressLabel, labelOffset, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, emailAddressLabel, labelOffset, SpringLayout.WEST, panel);
-
-        layout.putConstraint(SpringLayout.WEST, fNameField, fieldStartX, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, lNameField, fieldStartX, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, groupField, fieldStartX, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, phoneNumberField, fieldStartX, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, addressField, fieldStartX, SpringLayout.WEST, panel);
-        layout.putConstraint(SpringLayout.WEST, emailAddressField, fieldStartX, SpringLayout.WEST, panel);
-
-        layout.putConstraint(SpringLayout.NORTH, fNameLabel, rowSpacing, SpringLayout.NORTH, panel);
-        layout.putConstraint(SpringLayout.NORTH, fNameField, 0, SpringLayout.NORTH, fNameLabel);
-
-        layout.putConstraint(SpringLayout.NORTH, lNameLabel, rowSpacing, SpringLayout.SOUTH, fNameLabel);
-        layout.putConstraint(SpringLayout.NORTH, lNameField, 0, SpringLayout.NORTH, lNameLabel);
-
-        layout.putConstraint(SpringLayout.NORTH, groupLabel, rowSpacing, SpringLayout.SOUTH, lNameLabel);
-        layout.putConstraint(SpringLayout.NORTH, groupField, 0, SpringLayout.NORTH, groupLabel);
-
-        layout.putConstraint(SpringLayout.NORTH, phoneNumberLabel, rowSpacing, SpringLayout.SOUTH, groupLabel);
-        layout.putConstraint(SpringLayout.NORTH, phoneNumberField, 0, SpringLayout.NORTH, phoneNumberLabel);
-
-        layout.putConstraint(SpringLayout.NORTH, addressLabel, rowSpacing, SpringLayout.SOUTH, phoneNumberLabel);
-        layout.putConstraint(SpringLayout.NORTH, addressField, 0, SpringLayout.NORTH, addressLabel);
-
-        layout.putConstraint(SpringLayout.NORTH, emailAddressLabel, rowSpacing, SpringLayout.SOUTH, addressLabel);
-        layout.putConstraint(SpringLayout.NORTH, emailAddressField, 0, SpringLayout.NORTH, emailAddressLabel);
+        // Set constraints for all labels (left alignment)
+        for (int i = 0; i < labels.length; i++) {
+            layout.putConstraint(SpringLayout.WEST, labels[i], labelOffset, SpringLayout.WEST, panel);
+        }
+        
+        // Set constraints for all fields (left alignment)
+        for (int i = 0; i < fields.length; i++) {
+            layout.putConstraint(SpringLayout.WEST, fields[i], fieldStartX, SpringLayout.WEST, panel);
+        }
+        
+        // Set vertical positioning
+        // First row
+        layout.putConstraint(SpringLayout.NORTH, labels[0], rowSpacing, SpringLayout.NORTH, panel);
+        layout.putConstraint(SpringLayout.NORTH, fields[0], 0, SpringLayout.NORTH, labels[0]);
+        
+        // Subsequent rows
+        for (int i = 1; i < labels.length; i++) {
+            layout.putConstraint(SpringLayout.NORTH, labels[i], rowSpacing, SpringLayout.SOUTH, labels[i-1]);
+            layout.putConstraint(SpringLayout.NORTH, fields[i], 0, SpringLayout.NORTH, labels[i]);
+        }
     }
     
     private static void updateViewPanel(Contact contact) {
         if (contact != null) {
             viewFNameField.setText(contact.getfName());
             viewLNameField.setText(contact.getlName());
-            viewGroupField.setText(contact.getGroup() != null ? contact.getGroup().toString() : "");
+            viewGroupField.setText(contact.getGroup() != null ? contact.getGroup() : "");
             viewPhoneField.setText(contact.getPhoneNumber());
-            viewAddressField.setText(contact.getAddress() != null ? contact.getAddress().toString() : "");
             viewEmailField.setText(contact.getEmailAddress());
+            viewStreetField.setText(contact.getStreet() != null ? contact.getStreet() : "");
+            viewHouseNrField.setText(contact.getHouseNr() != null ? contact.getHouseNr() : "");
+            viewZipField.setText(contact.getZip() != null ? contact.getZip() : "");
+            viewCityField.setText(contact.getCity() != null ? contact.getCity() : "");
+            viewStateField.setText(contact.getState() != null ? contact.getState() : "");
+            viewCountryField.setText(contact.getCountry() != null ? contact.getCountry() : "");
         } else {
             clearViewPanel();
         }
@@ -385,10 +478,15 @@ public class GuiBuilder {
         if (contact != null) {
             editFNameField.setText(contact.getfName());
             editLNameField.setText(contact.getlName());
-            editGroupField.setText(contact.getGroup() != null ? contact.getGroup().toString() : "");
+            editGroupField.setText(contact.getGroup() != null ? contact.getGroup() : "");
             editPhoneField.setText(contact.getPhoneNumber());
-            editAddressField.setText(contact.getAddress() != null ? contact.getAddress().toString() : "");
             editEmailField.setText(contact.getEmailAddress());
+            editStreetField.setText(contact.getStreet() != null ? contact.getStreet() : "");
+            editHouseNrField.setText(contact.getHouseNr() != null ? contact.getHouseNr() : "");
+            editZipField.setText(contact.getZip() != null ? contact.getZip() : "");
+            editCityField.setText(contact.getCity() != null ? contact.getCity() : "");
+            editStateField.setText(contact.getState() != null ? contact.getState() : "");
+            editCountryField.setText(contact.getCountry() != null ? contact.getCountry() : "");
         } else {
             clearEditPanel();
         }
@@ -399,8 +497,13 @@ public class GuiBuilder {
         viewLNameField.setText("");
         viewGroupField.setText("");
         viewPhoneField.setText("");
-        viewAddressField.setText("");
         viewEmailField.setText("");
+        viewStreetField.setText("");
+        viewHouseNrField.setText("");
+        viewZipField.setText("");
+        viewCityField.setText("");
+        viewStateField.setText("");
+        viewCountryField.setText("");
     }
     
     private static void clearEditPanel() {
@@ -408,8 +511,13 @@ public class GuiBuilder {
         editLNameField.setText("");
         editGroupField.setText("");
         editPhoneField.setText("");
-        editAddressField.setText("");
         editEmailField.setText("");
+        editStreetField.setText("");
+        editHouseNrField.setText("");
+        editZipField.setText("");
+        editCityField.setText("");
+        editStateField.setText("");
+        editCountryField.setText("");
     }
     
     private static void clearNewPanel() {
@@ -417,8 +525,13 @@ public class GuiBuilder {
         newLNameField.setText("");
         newGroupField.setText("");
         newPhoneField.setText("");
-        newAddressField.setText("");
         newEmailField.setText("");
+        newStreetField.setText("");
+        newHouseNrField.setText("");
+        newZipField.setText("");
+        newCityField.setText("");
+        newStateField.setText("");
+        newCountryField.setText("");
     }
     
     private static void createNewContact() {
@@ -426,12 +539,19 @@ public class GuiBuilder {
         String lName = newLNameField.getText();
         String phoneNumber = newPhoneField.getText();
         String email = newEmailField.getText();
+        String group = newGroupField.getText();
         
-        // Currently not handling group and address properly
-        ContactGroup group = null;
-        Adress address = null;
+        // Create a new contact with basic info
+        Contact newContact = new Contact(fName, lName, group, phoneNumber, null, email);
         
-        Contact newContact = new Contact(fName, lName, group, phoneNumber, address, email);
+        // Set the address components directly
+        newContact.setStreet(newStreetField.getText());
+        newContact.setHouseNr(newHouseNrField.getText());
+        newContact.setZip(newZipField.getText());
+        newContact.setCity(newCityField.getText());
+        newContact.setState(newStateField.getText());
+        newContact.setCountry(newCountryField.getText());
+        
         contactList.add(newContact);
         
         refreshContactList();
@@ -445,10 +565,17 @@ public class GuiBuilder {
             
             selectedContact.setfName(editFNameField.getText());
             selectedContact.setlName(editLNameField.getText());
+            selectedContact.setGroup(editGroupField.getText());
             selectedContact.setTelephoneNumber(editPhoneField.getText());
             selectedContact.setEmailAddress(editEmailField.getText());
             
-            // Currently not handling group and address properly
+            // Update address components
+            selectedContact.setStreet(editStreetField.getText());
+            selectedContact.setHouseNr(editHouseNrField.getText());
+            selectedContact.setZip(editZipField.getText());
+            selectedContact.setCity(editCityField.getText());
+            selectedContact.setState(editStateField.getText());
+            selectedContact.setCountry(editCountryField.getText());
             
             refreshContactList();
             contactTable.setRowSelectionInterval(selectedIndex, selectedIndex);
@@ -470,7 +597,7 @@ public class GuiBuilder {
             Object[] rowData = {
                 contact.getfName(),
                 contact.getlName(),
-                contact.getGroup() != null ? contact.getGroup().toString() : "",
+                contact.getGroup() != null ? contact.getGroup() : "",
                 contact.getPhoneNumber(),
                 contact.getEmailAddress()
             };
