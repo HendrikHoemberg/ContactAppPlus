@@ -41,8 +41,24 @@ public class ContactRepository implements IContactRepository {
 
 
     public List<Contact> getAllContacts() {
-        String sql = "";
-        return null;
+        String sql = "SELECT * FROM contacts";
+        List<Contact> contacts = new ArrayList<>();
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             Statement statement = conn.createStatement();
+             ResultSet result = statement.executeQuery(sql)) {
+            while (result.next()) {
+                contacts.add(new Contact(
+                        result.getInt("contact_id"),
+                        result.getString("first_name"),
+                        result.getString("last_name"),
+                        result.getString("phone")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return contacts;
     }
 
     public Contact getContactById(int id) {

@@ -16,7 +16,7 @@ public class Contact {
 	private String country;
 	private String emailAddress;
 
-	public Contact(String fName, String lName, String group, String phoneNumber, Adress address,
+	public Contact(int id, String fName, String lName, String group, String phoneNumber, Adress address,
 			String emailAddress) {
 		this.fName = fName;
 		this.lName = lName;
@@ -24,6 +24,14 @@ public class Contact {
 		this.phoneNumber = phoneNumber;
 		this.address = address;
 		this.emailAddress = emailAddress;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getfName() {
