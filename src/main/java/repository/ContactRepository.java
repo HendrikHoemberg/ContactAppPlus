@@ -8,7 +8,7 @@ import application.Contact;
 
 public class ContactRepository implements IContactRepository {
 
-    private static final String CONNECTION_STRING = "jdbc:sqlite:.\\resources\\database.db";
+    private static final String CONNECTION_STRING = "jdbc:sqlite:database.db";
 
     public ContactRepository() {
         createTables();

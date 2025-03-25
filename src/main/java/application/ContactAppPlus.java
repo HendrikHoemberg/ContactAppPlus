@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.ContactGuiManager;
+import repository.ContactRepository;
 
 public class ContactAppPlus {
 	
@@ -16,6 +17,14 @@ public class ContactAppPlus {
 			}
 		});
 
-		List<Contact> = new ArrayList<>();
+		// List<Contact> contacts = new ArrayList<>();
+		// ContactRepository repo = new ContactRepository();
+
+		// contacts = repo.getAllContacts();
+
+		// for (Contact contact : contacts) {
+		// 	System.out.println(contact.getfName());
+		// }
+
 	}
 }

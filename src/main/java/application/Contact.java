@@ -61,14 +61,6 @@ public class Contact {
 		this.phoneNumber = telephoneNumber;
 	}
 
-	public Adress getAddress() {
-		return address;
-	}
-
-	public void setAddress(Adress adress) {
-		this.address = adress;
-	}
-
 	public String getStreet() {
 		return street;
 	}
