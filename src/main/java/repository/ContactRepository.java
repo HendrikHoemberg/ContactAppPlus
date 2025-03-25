@@ -4,11 +4,11 @@ import java.util.List;
 
 import application.Contact;
 
-public class DBRepository implements IDBRepository {
+public class ContactRepository implements IContactRepository {
 
     private static final String CONNECTION_STRING = "jdbc:sqlite:database.db";
 
-    public DBRepository() {
+    public ContactRepository() {
         createTables();
     }
 
