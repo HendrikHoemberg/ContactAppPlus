@@ -1,8 +1,10 @@
+package repository;
+
 import java.util.List;
 
 import application.Contact;
 
-public interface IDBRepository {
+public interface IContactRepository {
     void addContact(Contact contact);
     List<Contact> getAllContacts();
     Contact getContactById(int id);
