@@ -1,5 +1,7 @@
 import java.util.List;
 
+import application.Contact;
+
 public interface IDBRepository {
     void addContact(Contact contact);
     List<Contact> getAllContacts();

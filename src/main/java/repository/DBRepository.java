@@ -1,7 +1,7 @@
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
+import application.Contact;
+ 
 public class DBRepository implements IDBRepository {
 
     private static final String CONNECTION_STRING = "jdbc:sqlite:database.db";

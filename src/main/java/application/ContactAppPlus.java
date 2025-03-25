@@ -2,14 +2,15 @@ package application;
 
 import java.io.IOException;
 
-import gui.GuiBuilder;
+import gui.ContactGuiManager;
 
 public class ContactAppPlus {
 	
 	public static void main(String args[]) throws IOException {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				GuiBuilder.initGui();
+				ContactGuiManager contactGuiManager = new ContactGuiManager();
+				contactGuiManager.initGui();
 			}
 		});
 	}
