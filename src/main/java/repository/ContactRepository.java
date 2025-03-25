@@ -30,6 +30,13 @@ public class ContactRepository implements IContactRepository {
                         "\tstate TEXT,\r\n" + //
                         "\tcountry TEXT,\r\n" + //
                         ");";
+
+        try (Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
